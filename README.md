@@ -1,9 +1,13 @@
-# ADA Template Website
-## Usage
-1. Fork (copy) this repository by clicking the "Fork" button on the top right corner.
-2. Go to "Settings" -> "Pages" in your forked repository. Under "Branch" change "None" to "master" and click "Save".
-3. Edit the `_config.yml` file in your forked repository to change the site title (after `title:`) and description (after `description:`).
-4. Build your own page by editing this `README.md` (home page) and creating new `.md` files (other pages), formatting is done with standard [GitHub Markdown syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), we provide an example file `example.md` in the repository.
-**Important**: Please include ```--- layout: default ---``` (the first three line in `example.md`) at the beginning of your every newly created `.md` file.
-5. Add your new `.md` files to the site by editing the `_config.yml` file in your forked repository. Under `navigation:` add a new pair of `- title:` and `url:`, and fill their value with your page name and `.md` file name. Remember to remove the `- title:` and `url:` pair for the example page.
-6. Go back to "Settings" -> "Pages" to find your website link.
+# From Page to Screen: The Secret Behind Book Adaptations
+
+What makes a book irresistible to filmmakers? Do literary adaptations always guarantee box office gold, or is there a hidden formula for success? This interactive analysis dives into the captivating journey of books as they transition from the page to the big screen, unraveling patterns and surprises along the way.
+
+## What You'll Discover:
+- The unexpected traits of books that catch Hollywood's eye.
+- How some genres race to adaptation while others linger in obscurity.
+- The financial gamble: Do higher budgets always mean greater success?
+- Surprising underdog stories of adaptations that outshone their humble origins.
+
+With data from the **CMU Movie Summary Corpus** enriched by IMDb and Wikidata, this study reveals insights into the timeless art of storytelling and what resonates with audiences across decades and borders. 
+
+Dive in to uncover the stories behind the stories—because not all adaptations are created equal.
