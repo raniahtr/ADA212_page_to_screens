@@ -1,9 +1,21 @@
-theme: jekyll-theme-minimal
-title: ADA Template Website
-description: A template website for ADA
+theme: jekyll-theme-architect
+title: From Page to Screen – The Journey and Success of Book Adaptations
+description: An interactive data story exploring the success of book adaptations.
 show_downloads: True
+
+# Add navigation for the "book-like" structure
 navigation:
-  - title: Home
-    url: /
-  - title: Example
-    url: example
+  - title: "Introduction"
+    url: /introduction.html
+  - title: "The Origins"
+    url: /origins.html
+  - title: "The Path to Adaptation"
+    url: /path-to-adaptation.html
+  - title: "The Grand Premiere"
+    url: /grand-premiere.html
+  - title: "The Global Reception"
+    url: /global-reception.html
+  - title: "Budget and Investment Dilemma"
+    url: /budget-investment.html
+  - title: "Plot Twist"
+    url: /plot-twist.html
