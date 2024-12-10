@@ -9,49 +9,39 @@ document.addEventListener('DOMContentLoaded', () => {
         '/plot-twist.html'
     ];
 
-    let currentPageIndex = 0;
-    const pageWrapper = document.querySelector('.page-wrapper');
+    // Find current page index
+    const currentPath = window.location.pathname;
+    let currentPageIndex = pages.findIndex(page => page === currentPath);
+    if (currentPageIndex === -1) currentPageIndex = 0;
+
     const rightPage = document.querySelector('.right-page');
     const leftPage = document.querySelector('.left-page');
 
-    // Find current page index
-    const currentPath = window.location.pathname;
-    currentPageIndex = pages.findIndex(page => page === currentPath);
-    if (currentPageIndex === -1) currentPageIndex = 0;
-
     function navigateToPage(direction) {
         let nextIndex;
-        let pageToTurn;
-        
+        const currentPage = direction === 'next' ? rightPage : leftPage;
+
         if (direction === 'next' && currentPageIndex < pages.length - 1) {
             nextIndex = currentPageIndex + 1;
-            pageToTurn = rightPage;
-        } else if (direction === 'prev' && currentPageIndex > 0) {
+            currentPage.classList.add('is-turning');
+            
+            setTimeout(() => {
+                window.location.href = pages[nextIndex];
+            }, 500);
+        } 
+        else if (direction === 'prev' && currentPageIndex > 0) {
             nextIndex = currentPageIndex - 1;
-            pageToTurn = leftPage;
-        } else {
-            return; // Don't navigate if at the end or beginning
+            currentPage.classList.add('is-turning');
+            
+            setTimeout(() => {
+                window.location.href = pages[nextIndex];
+            }, 500);
         }
-
-        // Add turning animation
-        pageToTurn.classList.add('turning');
-
-        // Wait for animation to complete before navigating
-        setTimeout(() => {
-            window.location.href = pages[nextIndex];
-        }, 500); // Half of the CSS transition time
     }
 
     // Add click events
-    rightPage.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigateToPage('next');
-    });
-
-    leftPage.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigateToPage('prev');
-    });
+    rightPage.addEventListener('click', () => navigateToPage('next'));
+    leftPage.addEventListener('click', () => navigateToPage('prev'));
 
     // Add keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -62,32 +52,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Add hover effects
+    // Add hover effect
     rightPage.addEventListener('mouseover', () => {
         if (currentPageIndex < pages.length - 1) {
-            rightPage.style.transform = 'rotateY(-15deg)';
+            rightPage.style.transform = 'rotateY(-10deg)';
         }
     });
 
     rightPage.addEventListener('mouseout', () => {
-        rightPage.style.transform = 'rotateY(0)';
+        if (!rightPage.classList.contains('is-turning')) {
+            rightPage.style.transform = 'rotateY(0)';
+        }
     });
 
     leftPage.addEventListener('mouseover', () => {
         if (currentPageIndex > 0) {
-            leftPage.style.transform = 'rotateY(15deg)';
+            leftPage.style.transform = 'rotateY(10deg)';
         }
     });
 
     leftPage.addEventListener('mouseout', () => {
-        leftPage.style.transform = 'rotateY(0)';
+        if (!leftPage.classList.contains('is-turning')) {
+            leftPage.style.transform = 'rotateY(0)';
+        }
     });
-
-    // Add visual indicators for navigation availability
-    if (currentPageIndex === 0) {
-        leftPage.style.cursor = 'not-allowed';
-    }
-    if (currentPageIndex === pages.length - 1) {
-        rightPage.style.cursor = 'not-allowed';
-    }
 });
