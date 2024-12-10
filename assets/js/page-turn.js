@@ -1,13 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const pageWrapper = document.querySelector('.page-wrapper');
-    const leftPage = document.querySelector('.left-page');
-    const rightPage = document.querySelector('.right-page');
-    
-    // Get all navigation links
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    // Current page index (to track navigation)
-    let currentPageIndex = 0;
     const pages = [
         '/introduction.html', 
         '/origins.html', 
@@ -18,40 +9,85 @@ document.addEventListener('DOMContentLoaded', () => {
         '/plot-twist.html'
     ];
 
-    // Page turn function
-    function turnPage(direction) {
+    let currentPageIndex = 0;
+    const pageWrapper = document.querySelector('.page-wrapper');
+    const rightPage = document.querySelector('.right-page');
+    const leftPage = document.querySelector('.left-page');
+
+    // Find current page index
+    const currentPath = window.location.pathname;
+    currentPageIndex = pages.findIndex(page => page === currentPath);
+    if (currentPageIndex === -1) currentPageIndex = 0;
+
+    function navigateToPage(direction) {
+        let nextIndex;
+        let pageToTurn;
+        
         if (direction === 'next' && currentPageIndex < pages.length - 1) {
-            currentPageIndex++;
-            window.location.href = pages[currentPageIndex];
+            nextIndex = currentPageIndex + 1;
+            pageToTurn = rightPage;
         } else if (direction === 'prev' && currentPageIndex > 0) {
-            currentPageIndex--;
-            window.location.href = pages[currentPageIndex];
+            nextIndex = currentPageIndex - 1;
+            pageToTurn = leftPage;
+        } else {
+            return; // Don't navigate if at the end or beginning
         }
+
+        // Add turning animation
+        pageToTurn.classList.add('turning');
+
+        // Wait for animation to complete before navigating
+        setTimeout(() => {
+            window.location.href = pages[nextIndex];
+        }, 500); // Half of the CSS transition time
     }
 
-    // Add click events to pages for navigation
-    rightPage.addEventListener('click', () => {
-        turnPage('next');
+    // Add click events
+    rightPage.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateToPage('next');
     });
 
-    leftPage.addEventListener('click', () => {
-        turnPage('prev');
+    leftPage.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateToPage('prev');
     });
 
-    // Optional: Keyboard navigation
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'ArrowRight') {
-            turnPage('next');
-        } else if (event.key === 'ArrowLeft') {
-            turnPage('prev');
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            navigateToPage('next');
+        } else if (e.key === 'ArrowLeft') {
+            navigateToPage('prev');
         }
     });
 
-    // Highlight current page in navigation
-    navLinks.forEach((link, index) => {
-        if (link.getAttribute('href') === window.location.pathname) {
-            currentPageIndex = index;
-            link.classList.add('active');
+    // Add hover effects
+    rightPage.addEventListener('mouseover', () => {
+        if (currentPageIndex < pages.length - 1) {
+            rightPage.style.transform = 'rotateY(-15deg)';
         }
     });
+
+    rightPage.addEventListener('mouseout', () => {
+        rightPage.style.transform = 'rotateY(0)';
+    });
+
+    leftPage.addEventListener('mouseover', () => {
+        if (currentPageIndex > 0) {
+            leftPage.style.transform = 'rotateY(15deg)';
+        }
+    });
+
+    leftPage.addEventListener('mouseout', () => {
+        leftPage.style.transform = 'rotateY(0)';
+    });
+
+    // Add visual indicators for navigation availability
+    if (currentPageIndex === 0) {
+        leftPage.style.cursor = 'not-allowed';
+    }
+    if (currentPageIndex === pages.length - 1) {
+        rightPage.style.cursor = 'not-allowed';
+    }
 });

@@ -24,39 +24,74 @@ body {
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
-  perspective: 1500px;
+  perspective: 2000px;
   background-color: white;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 .page-wrapper {
+  position: relative;
   display: flex;
   width: 100%;
   min-height: 80vh;
   background-color: white;
   border: 1px solid #e0e0e0;
+  perspective: 2000px;
+  transform-style: preserve-3d;
 }
 
 .page {
+  position: relative;
   width: 50%;
   padding: 2rem;
   background-color: white;
-  transition: transform 0.6s ease;
+  transform-origin: left center;
+  transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
   transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #f1f1f1;
+  transform: rotateY(180deg);
+}
+
+.page.turning {
+  transform: rotateY(-180deg);
+  pointer-events: none;
+}
+
+.page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.page.turning::after {
+  opacity: 1;
+}
+
+.page-content {
+  position: relative;
   backface-visibility: hidden;
 }
 
 .left-page {
   border-right: 1px solid #e0e0e0;
-}
-
-/* Page Turn Effect */
-.page:hover {
-  cursor: pointer;
-}
-
-.page.turned {
-  transform: perspective(1500px) rotateY(-180deg);
 }
 
 /* Navigation Styling */
@@ -92,6 +127,22 @@ body {
   color: white;
 }
 
+.nav-menu a.active {
+  color: white;
+  font-weight: bold;
+  position: relative;
+}
+
+.nav-menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary-color);
+}
+
 /* Typography */
 h1, h2, h3 {
   color: var(--accent-color);
@@ -102,6 +153,44 @@ h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; }
 
+/* Links and Interactive Elements */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Page Navigation Indicators */
+.page {
+  cursor: pointer;
+}
+
+.page:hover {
+  opacity: 0.9;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer a {
+  color: var(--secondary-color);
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .page-wrapper {
@@ -110,6 +199,7 @@ h3 { font-size: 1.5rem; }
   
   .page {
       width: 100%;
+      transform-origin: top center;
   }
   
   .nav-wrapper {
@@ -127,43 +217,36 @@ h3 { font-size: 1.5rem; }
   }
 }
 
-/* Additional Enhancements */
-img {
-  max-width: 100%;
-  height: auto;
+/* Book Container */
+.book-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--secondary-color);
-}
-/* Page Navigation Styles */
-.nav-menu a.active {
+/* Logo */
+.logo {
+  font-family: 'Merriweather', serif;
   color: white;
+  font-size: 1.5rem;
   font-weight: bold;
-  position: relative;
+  text-decoration: none;
 }
 
-.nav-menu a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--secondary-color);
+/* Additional Page Effects */
+.page:not(.turning):hover {
+  transform: rotateY(-15deg);
 }
 
-.page {
-  cursor: pointer;
-  transition: transform 0.6s ease;
+.left-page:not(.turning):hover {
+  transform: rotateY(15deg);
 }
 
-.page:hover {
-  opacity: 0.9;
+/* Navigation Accessibility */
+@media (hover: hover) {
+  .nav-menu a:focus {
+      outline: 2px solid var(--secondary-color);
+      outline-offset: 4px;
+  }
 }
