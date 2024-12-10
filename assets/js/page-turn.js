@@ -1,61 +1,105 @@
-$(document).ready(function() {
-    // Navigation Toggle
-    $('.nav-toggle').click(function() {
-        $('.nav-content').toggleClass('active');
-    });
+// Add to a new file: assets/js/page-turner.js
 
-    // Page Turn Animation
-    function turnPage(direction) {
-        const currentPage = $('.current-page');
-        const nextPage = $('.next-page');
+class PageTurner {
+    constructor() {
+      this.currentPage = 0;
+      this.pages = [
+        'introduction',
+        'origins',
+        'path-to-adaptation',
+        'grand-premiere',
+        'global-reception',
+        'budget-investment',
+        'plot-twist'
+      ];
+      this.isAnimating = false;
+      this.init();
+    }
+  
+    init() {
+      this.createPages();
+      this.setupNavigation();
+    }
+  
+    createPages() {
+      const container = document.createElement('div');
+      container.className = 'page-container';
+      
+      this.pages.forEach((page, index) => {
+        const pageElement = document.createElement('div');
+        pageElement.className = 'page';
+        pageElement.id = `page-${page}`;
         
-        if (direction === 'next' && $('.next-page').data('href')) {
-            currentPage.addClass('turning');
-            
-            setTimeout(() => {
-                window.location.href = $('.next-page').data('href');
-            }, 400);
-        } else if (direction === 'prev' && $('.prev-page').data('href')) {
-            nextPage.addClass('turning');
-            
-            setTimeout(() => {
-                window.location.href = $('.prev-page').data('href');
-            }, 400);
+        if (index !== 0) {
+          pageElement.style.transform = 'rotateY(-180deg)';
         }
+        
+        // Create front content
+        const frontContent = document.createElement('div');
+        frontContent.className = 'page-content';
+        frontContent.innerHTML = `
+          <div class="page-number">${index + 1} / ${this.pages.length}</div>
+        `;
+        
+        // Create back content
+        const backContent = document.createElement('div');
+        backContent.className = 'page-content page-back';
+        
+        pageElement.appendChild(frontContent);
+        pageElement.appendChild(backContent);
+        container.appendChild(pageElement);
+      });
+      
+      document.querySelector('.main-content').appendChild(container);
     }
-
-    // Navigation Handlers
-    $('.next-page').click(() => turnPage('next'));
-    $('.prev-page').click(() => turnPage('prev'));
-
-    // Keyboard Navigation
-    $(document).keydown(function(e) {
-        if (e.keyCode === 37) { // Left arrow
-            turnPage('prev');
-        } else if (e.keyCode === 39) { // Right arrow
-            turnPage('next');
-        }
-    });
-
-    // Preload Next Page Content
-    function preloadNextPage() {
-        const nextPageUrl = $('.next-page').data('href');
-        if (nextPageUrl) {
-            $.get(nextPageUrl, function(data) {
-                const content = $(data).find('.page-content').html();
-                $('.next-page').html(content);
-            });
-        }
+  
+    setupNavigation() {
+      document.querySelectorAll('.nav-item').forEach((link, index) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (!this.isAnimating) {
+            const targetPage = index;
+            this.turnToPage(targetPage);
+          }
+        });
+      });
     }
-
-    // Initialize
-    preloadNextPage();
-
-    // Disable buttons if no next/previous page
-    if (!$('.next-page').data('href')) {
-        $('.next-page').prop('disabled', true);
+  
+    async turnToPage(targetPage) {
+      if (this.currentPage === targetPage || this.isAnimating) return;
+      
+      this.isAnimating = true;
+      const direction = targetPage > this.currentPage ? 'forward' : 'backward';
+      const pagesToTurn = direction === 'forward' 
+        ? Array.from({ length: targetPage - this.currentPage }, (_, i) => this.currentPage + i)
+        : Array.from({ length: this.currentPage - targetPage }, (_, i) => this.currentPage - i - 1);
+      
+      for (const pageNum of pagesToTurn) {
+        await this.animatePage(pageNum, direction);
+      }
+      
+      this.currentPage = targetPage;
+      this.isAnimating = false;
+      
+      // Update URL without reload
+      history.pushState({}, '', `/${this.pages[targetPage]}`);
     }
-    if (!$('.prev-page').data('href')) {
-        $('.prev-page').prop('disabled', true);
+  
+    animatePage(pageNum, direction) {
+      return new Promise(resolve => {
+        const page = document.querySelector(`#page-${this.pages[pageNum]}`);
+        page.classList.add('turning');
+        
+        setTimeout(() => {
+          page.classList.remove('turning');
+          page.classList.toggle('turned', direction === 'forward');
+          resolve();
+        }, 1500);
+      });
     }
-});
+  }
+  
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new PageTurner();
+  });
