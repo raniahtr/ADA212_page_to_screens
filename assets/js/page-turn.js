@@ -1,49 +1,61 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const pages = [
-        '/introduction.html',
-        '/origins.html',
-        '/path-to-adaptation.html',
-        '/grand-premiere.html',
-        '/global-reception.html',
-        '/budget-investment.html',
-        '/plot-twist.html'
-    ];
+$(document).ready(function() {
+    // Navigation Toggle
+    $('.nav-toggle').click(function() {
+        $('.nav-content').toggleClass('active');
+    });
 
-    // Get current page index
-    const currentPage = window.location.pathname;
-    const currentIndex = pages.indexOf(currentPage);
-
-    function navigateToPage(direction) {
-        let nextIndex;
+    // Page Turn Animation
+    function turnPage(direction) {
+        const currentPage = $('.current-page');
+        const nextPage = $('.next-page');
         
-        if (direction === 'next' && currentIndex < pages.length - 1) {
-            nextIndex = currentIndex + 1;
-            document.querySelector('.page.right').classList.add('turning');
+        if (direction === 'next' && $('.next-page').data('href')) {
+            currentPage.addClass('turning');
+            
             setTimeout(() => {
-                window.location.href = pages[nextIndex];
-            }, 300);
-        } 
-        else if (direction === 'prev' && currentIndex > 0) {
-            nextIndex = currentIndex - 1;
-            document.querySelector('.page.left').classList.add('turning');
+                window.location.href = $('.next-page').data('href');
+            }, 400);
+        } else if (direction === 'prev' && $('.prev-page').data('href')) {
+            nextPage.addClass('turning');
+            
             setTimeout(() => {
-                window.location.href = pages[nextIndex];
-            }, 300);
+                window.location.href = $('.prev-page').data('href');
+            }, 400);
         }
     }
 
-    // Click events
-    document.querySelector('.page.right').addEventListener('click', () => {
-        navigateToPage('next');
+    // Navigation Handlers
+    $('.next-page').click(() => turnPage('next'));
+    $('.prev-page').click(() => turnPage('prev'));
+
+    // Keyboard Navigation
+    $(document).keydown(function(e) {
+        if (e.keyCode === 37) { // Left arrow
+            turnPage('prev');
+        } else if (e.keyCode === 39) { // Right arrow
+            turnPage('next');
+        }
     });
 
-    document.querySelector('.page.left').addEventListener('click', () => {
-        navigateToPage('prev');
-    });
+    // Preload Next Page Content
+    function preloadNextPage() {
+        const nextPageUrl = $('.next-page').data('href');
+        if (nextPageUrl) {
+            $.get(nextPageUrl, function(data) {
+                const content = $(data).find('.page-content').html();
+                $('.next-page').html(content);
+            });
+        }
+    }
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') navigateToPage('next');
-        if (e.key === 'ArrowLeft') navigateToPage('prev');
-    });
+    // Initialize
+    preloadNextPage();
+
+    // Disable buttons if no next/previous page
+    if (!$('.next-page').data('href')) {
+        $('.next-page').prop('disabled', true);
+    }
+    if (!$('.prev-page').data('href')) {
+        $('.prev-page').prop('disabled', true);
+    }
 });

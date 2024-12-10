@@ -1,50 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>{{ site.title | default: site.github.repository_name }}</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ '/assets/js/page-turn.js' | relative_url }}"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-content">
-            <a href="/" class="logo">Page to Screen</a>
-            <ul class="nav-links">
-                {% for nav in site.navigation %}
-                    <li>
-                        <a href="{{ nav.url | relative_url }}" {% if page.url == nav.url %}class="active"{% endif %}>
-                            {{ nav.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+    <div class="book-container">
+        <!-- Navigation Menu -->
+        <div class="book-nav">
+            <div class="nav-toggle">☰</div>
+            <div class="nav-content">
+                <h2>Table of Contents</h2>
+                <ul>
+                    {% for item in site.navigation %}
+                    <li><a href="{{ item.url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-    </nav>
 
-    <!-- Book Container -->
-    <div class="book">
-        <div class="page left">
-            <div class="page-content">
-                <h1>{{ site.title }}</h1>
-                <p>{{ site.description }}</p>
+        <!-- Book Content -->
+        <div class="book">
+            <div class="page current-page">
+                <div class="page-content">
+                    <h1>{{ page.title }}</h1>
+                    {{ content }}
+                </div>
             </div>
+            <div class="page next-page"></div>
         </div>
-        <div class="page right">
-            <div class="page-content">
-                {{ content }}
-            </div>
+
+        <!-- Navigation Arrows -->
+        <div class="page-navigation">
+            <button class="prev-page" {% if page.previous %}data-href="{{ page.previous.url }}"{% endif %}>←</button>
+            <button class="next-page" {% if page.next %}data-href="{{ page.next.url }}"{% endif %}>→</button>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Page to Screen Project</p>
-    </footer>
-
-    <script src="{{ '/assets/js/page-turn.js' | relative_url }}"></script>
 </body>
 </html>
