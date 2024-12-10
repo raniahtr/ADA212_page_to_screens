@@ -1,38 +1,21 @@
-# Site Settings
 theme: jekyll-theme-architect
 title: From Page to Screen – The Journey and Success of Book Adaptations
 description: An interactive data story exploring the success of book adaptations.
-show_downloads: true
-permalink: pretty
+show_downloads: True
 
-# Build settings
-markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-
-# Navigation Structure
+# Add navigation for the "book-like" structure
 navigation:
   - title: "Introduction"
-    url: "/"
+    url: /introduction.html
   - title: "The Origins"
-    url: "/origins"
+    url: /origins.html
   - title: "The Path to Adaptation"
-    url: "/path-to-adaptation"
+    url: /path-to-adaptation.html
   - title: "The Grand Premiere"
-    url: "/grand-premiere"
+    url: /grand-premiere.html
   - title: "The Global Reception"
-    url: "/global-reception"
+    url: /global-reception.html
   - title: "Budget and Investment Dilemma"
-    url: "/budget-investment"
+    url: /budget-investment.html
   - title: "Plot Twist"
-    url: "/plot-twist"
-
-# Default Layout Settings
-defaults:
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
+    url: /plot-twist.html
