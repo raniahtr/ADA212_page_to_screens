@@ -33,24 +33,28 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
   align-items: center;
-  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 8px;
+  gap: 2px; /* Small gap between items */
 }
 
 .nav-item {
-  color: rgba(255, 255, 255, 0.7);  /* Slightly dimmed text by default */
+  flex: 1; /* Makes all items take equal space */
+  color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
   border-radius: 4px;
-  transition: all 0.3s ease;
-  position: relative;
+  transition: background-color 0.3s;
+  white-space: nowrap; /* Prevents text wrapping */
+  background: rgba(255, 255, 255, 0.05);
 }
 
-
+/* Active state */
 .nav-item.active {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* Underline indicator for active page */
@@ -64,12 +68,10 @@ body {
   background-color: var(--secondary-color);  /* Using your blue accent color */
 }
 
-/* Hover effect */
+/* Hover state */
 .nav-item:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
 }
-
 /* Main Layout */
 .wrapper {
   max-width: 1200px;
