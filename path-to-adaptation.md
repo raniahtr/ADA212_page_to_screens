@@ -34,8 +34,6 @@ Now, here's a plot twist worthy of any novel: in our grand ballroom of stories, 
 
 Our data shows that prize-winning books follow almost the same pattern as their undecorated peers. It's as if the filmmakers in our metaphorical ballroom are more interested in the dance itself than the ribbons adorning the dancers.
 
-[*Previous sections continue as before through "Looking Forward"*]
+
 
 ---
-
-*Through the lens of data, we've watched the dance of thousands of stories as they made their way from page to screen. Each point on our graphs represents a dream realized, a story reborn, a new interpretation of words that once existed only in ink and imagination. As we close this chapter of our analysis, remember: somewhere out there, right now, another book is beginning its journey to the screen.*
