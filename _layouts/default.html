@@ -17,9 +17,9 @@
         <div class="nav-links">
             {% for nav in site.navigation %}
                 {% if nav.url contains "://" %}
-                    <a href="{{ nav.url }}" class="nav-item">{{ nav.title }}</a>
+                    <a href="{{ nav.url }}" class="nav-item {% if page.url == nav.url %}active{% endif %}">{{ nav.title }}</a>
                 {% else %}
-                    <a href="{{ nav.url | relative_url }}" class="nav-item">{{ nav.title }}</a>
+                    <a href="{{ nav.url | relative_url }}" class="nav-item {% if page.url == nav.url %}active{% endif %}">{{ nav.title }}</a>
                 {% endif %}
             {% endfor %}
         </div>
@@ -53,11 +53,7 @@
             </div>
         </section>
 
-        <footer>
-            {% if site.github.is_project_page %}
-            <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-            {% endif %}
-        </footer>
+       
     </div>
 
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
