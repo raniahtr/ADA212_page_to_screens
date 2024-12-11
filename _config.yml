@@ -1,7 +1,7 @@
 theme: jekyll-theme-architect
 title: From Page to Screen – The Journey and Success of Book Adaptations
 description: An interactive data story exploring the success of book adaptations.
-show_downloads: True
+show_downloads: False
 
 # Add navigation for the "book-like" structure
 navigation:

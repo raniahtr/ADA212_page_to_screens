@@ -56,6 +56,7 @@ body {
   padding: 0 2rem;
   display: flex;
   gap: 2rem;
+  overflow-x: hidden; /* Added this line */
 }
 
 /* Sidebar */
@@ -144,10 +145,7 @@ pre {
 
 /* Footer */
 footer {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
-  color: #666;
+  display: none;  /* This hides the footer */
 }
 
 /* Responsive Design */
