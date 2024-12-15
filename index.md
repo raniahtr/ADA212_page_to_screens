@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Once upon a time in CMU
+title: Once upon a time in the Movie Summary Corpus
 
 ---
 # From Page to Screen: The Secret Behind Book Adaptations
