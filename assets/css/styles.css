@@ -8,7 +8,7 @@
   --nav-bg: #2c3e50;
 }
 
-/* Base styles to ensure consistency */
+/* Base styles */
 html, body {
   background-color: var(--paper-color);
   margin: 0;
@@ -37,6 +37,7 @@ html, body {
   margin: 0;
   font-family: "Playfair Display", serif;
   font-size: 1.5rem;
+  letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -69,7 +70,7 @@ html, body {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 2rem;
-  background: white;
+  background: var(--paper-color);
   border-radius: 12px;
   box-shadow: 0 2px 8px var(--shadow-color);
   padding: 2rem;
@@ -106,15 +107,41 @@ html, body {
   font-size: 1.2rem;
 }
 
+/* Download Buttons */
+.download-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+  background-color: var(--primary-color);
+}
+
 /* Main Content */
 .main-content {
   background: var(--paper-color);
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 8px var(--shadow-color);
 }
 
-/* Consistent Typography */
+.page-content {
+  background: var(--paper-color);
+}
+
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", serif;
   color: var(--primary-color);
@@ -129,6 +156,12 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 3px solid var(--primary-color);
 }
 
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.1rem; }
+
 /* First Letter Effect */
 .main-content p:first-of-type::first-letter {
   float: left;
@@ -139,9 +172,20 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+/* Links */
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
 /* Data Visualization Containers */
 .chart-container {
-  background: white;
+  background: var(--paper-color);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px var(--shadow-color);
@@ -155,6 +199,34 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--accent-color);
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Code Blocks */
+pre, code {
+  font-family: "Monaco", "Consolas", monospace;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
 }
 
 /* Responsive Design */
@@ -184,5 +256,29 @@ h1, h2, h3, h4, h5, h6 {
   
   .chapter-heading {
       font-size: 2rem;
+  }
+  
+  .main-content,
+  .sidebar-content {
+      padding: 1rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .wrapper {
+      box-shadow: none;
+  }
+  
+  .top-nav {
+      position: static;
+  }
+  
+  .sidebar {
+      display: none;
+  }
+  
+  .chart-container {
+      break-inside: avoid;
   }
 }
