@@ -1,35 +1,80 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const content = document.getElementById('page-content');
+  const contentWrapper = document.querySelector('.book-content-wrapper');
+  const content = document.querySelector('.page-content');
   const navLinks = document.querySelectorAll('.nav-item');
   let isAnimating = false;
+  let currentPage = 1;
+
+  // Add page numbers
+  function updatePageNumber() {
+      let pageNumber = document.querySelector('.page-number');
+      if (!pageNumber) {
+          pageNumber = document.createElement('div');
+          pageNumber.className = 'page-number';
+          content.appendChild(pageNumber);
+      }
+      pageNumber.textContent = `${currentPage} / ${navLinks.length}`;
+  }
+
+  // Initialize progress bar
+  const progressBar = document.createElement('div');
+  progressBar.className = 'progress-bar';
+  contentWrapper.appendChild(progressBar);
+
+  function updateProgress() {
+      const progress = (currentPage - 1) / (navLinks.length - 1) * 100;
+      progressBar.style.width = `${progress}%`;
+  }
+
+  // Handle page transitions
+  function transitionPage(targetPage, href) {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      // Update current page
+      currentPage = targetPage;
+      updatePageNumber();
+      updateProgress();
+
+      // Add turning class for animation
+      content.classList.add('turning');
+
+      // Create loading state
+      const loadingEl = document.createElement('div');
+      loadingEl.className = 'page-loading';
+      loadingEl.textContent = 'Turning page...';
+      contentWrapper.appendChild(loadingEl);
+
+      // Wait for animation
+      setTimeout(() => {
+          window.location.href = href;
+      }, 400);
+  }
 
   // Handle navigation clicks
-  navLinks.forEach(link => {
+  navLinks.forEach((link, index) => {
       link.addEventListener('click', function(e) {
-          if (isAnimating) {
-              e.preventDefault();
-              return;
-          }
+          e.preventDefault();
+          if (isAnimating) return;
 
-          isAnimating = true;
-          content.style.transform = 'rotateY(-180deg)';
+          const targetPage = index + 1;
+          const href = this.href;
 
-          // Add page number to current content
-          const pageNumber = document.createElement('div');
-          pageNumber.className = 'page-number';
-          pageNumber.textContent = Array.from(navLinks).indexOf(link) + 1;
-          content.appendChild(pageNumber);
-
-          // After animation, allow next navigation
-          setTimeout(() => {
-              isAnimating = false;
-          }, 1000);
+          transitionPage(targetPage, href);
       });
   });
 
-  // Add initial page number
-  const initialPage = document.createElement('div');
-  initialPage.className = 'page-number';
-  initialPage.textContent = '1';
-  content.appendChild(initialPage);
+  // Initialize page number and progress
+  updatePageNumber();
+  updateProgress();
+
+  // Reset animation state when page loads
+  window.addEventListener('pageshow', function() {
+      isAnimating = false;
+      content.classList.remove('turning');
+      const loadingEl = document.querySelector('.page-loading');
+      if (loadingEl) {
+          loadingEl.remove();
+      }
+  });
 });

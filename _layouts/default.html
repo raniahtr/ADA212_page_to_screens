@@ -8,11 +8,11 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/page-turner.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <meta name="viewport" content="width=device-width">
 </head>
@@ -32,13 +32,16 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Container -->
     <div class="book-container">
         <div class="wrapper">
             <!-- Sidebar -->
             <aside class="sidebar">
                 <div class="sidebar-content">
-                    <p class="description">{{ site.description }}</p>
+                    <div class="chapter-description">
+                        <p class="description">{{ site.description }}</p>
+                        <p class="current-chapter">{{ page.title }}</p>
+                    </div>
                     {% if site.show_downloads %}
                     <div class="download-buttons">
                         <a href="{{ site.github.zip_url }}" class="download-btn">
@@ -55,11 +58,13 @@
                 </div>
             </aside>
 
-            <!-- Main Content Area -->
+            <!-- Main Content -->
             <section class="main-content">
-                <div class="chapter-content" id="page-content">
-                    <h1 class="chapter-heading">{{ page.title }}</h1>
-                    {{ content }}
+                <div class="book-content-wrapper">
+                    <div class="page-content">
+                        <h1 class="chapter-heading">{{ page.title }}</h1>
+                        {{ content }}
+                    </div>
                 </div>
             </section>
         </div>
@@ -67,6 +72,7 @@
 
     <!-- Scripts -->
     <script src="{{ '/assets/js/page-turner.js' | relative_url }}"></script>
+    
     {% if site.google_analytics %}
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
