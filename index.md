@@ -23,25 +23,25 @@ Every great story has its authors—those who bring its pages to life with creat
 
 Together, they’ve written a new chapter in understanding the timeless art of adaptation, revealing how books leap from shelves to the bright lights of cinema.
 
-<div style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap;">
+<div class="team-section" style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap;">
     <div style="text-align: center;">
         <img src="assets/img/rania_hatrouhou.jpg" alt="Rania Hatrouhou" style="width: 100px; height: auto; object-fit: cover;">
-        <p>Rania Hatrouhou</p>
+        <span style="display: block; font-size: 1rem; margin-top: 10px;">Rania Hatrouhou</span>
     </div>
     <div style="text-align: center;">
         <img src="assets/img/leila_benjelloun.jpg" alt="Leila Benjelloun" style="width: 100px; height: auto; object-fit: cover;">
-        <p>Leila Benjelloun</p>
+        <span style="display: block; font-size: 1rem; margin-top: 10px;">Leila Benjelloun</span>
     </div>
     <div style="text-align: center;">
         <img src="assets/img/ghalia_bennani.jpg" alt="Ghalia Bennani" style="width: 100px; height: auto; object-fit: cover;">
-        <p>Ghalia Bennani</p>
+        <span style="display: block; font-size: 1rem; margin-top: 10px;">Ghalia Bennani</span>
     </div>
     <div style="text-align: center;">
         <img src="assets/img/omar_boudarka.jpg" alt="Omar Boudarka" style="width: 100px; height: auto; object-fit: cover;">
-        <p>Omar Boudarka</p>
+        <span style="display: block; font-size: 1rem; margin-top: 10px;">Omar Boudarka</span>
     </div>
     <div style="text-align: center;">
         <img src="assets/img/valentin_vuillon.jpg" alt="Valentin Vuillon" style="width: 100px; height: auto; object-fit: cover;">
-        <p>Valentin Vuillon</p>
+        <span style="display: block; font-size: 1rem; margin-top: 10px;">Valentin Vuillon</span>
     </div>
 </div>
