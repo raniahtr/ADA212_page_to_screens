@@ -25,23 +25,23 @@ Together, they’ve written a new chapter in understanding the timeless art of a
 
 <div style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap;">
     <div style="text-align: center;">
-        <img src="assets/img/rania_hatrouhou.jpg" alt="Rania Hatrouhou" >
+        <img src="assets/img/rania_hatrouhou.jpg" alt="Rania Hatrouhou" style="width: 100px; height: auto; object-fit: cover;">
         <p>Rania Hatrouhou</p>
     </div>
     <div style="text-align: center;">
-        <img src="assets/img/leila_benjelloun.jpg" alt="Leila Benjelloun" >
+        <img src="assets/img/leila_benjelloun.jpg" alt="Leila Benjelloun" style="width: 100px; height: auto; object-fit: cover;">
         <p>Leila Benjelloun</p>
     </div>
     <div style="text-align: center;">
-        <img src="assets/img/ghalia_bennani.jpg" alt="Ghalia Bennani" >
+        <img src="assets/img/ghalia_bennani.jpg" alt="Ghalia Bennani" style="width: 100px; height: auto; object-fit: cover;">
         <p>Ghalia Bennani</p>
     </div>
     <div style="text-align: center;">
-        <img src="assets/img/leila_benjelloun.jpg" alt="Omar Boudarka" >
+        <img src="assets/img/omar_boudarka.jpg" alt="Omar Boudarka" style="width: 100px; height: auto; object-fit: cover;">
         <p>Omar Boudarka</p>
     </div>
     <div style="text-align: center;">
-        <img src="assets/img/ghalia_bennani.jpg" alt="Valentin Vuillon" >
+        <img src="assets/img/valentin_vuillon.jpg" alt="Valentin Vuillon" style="width: 100px; height: auto; object-fit: cover;">
         <p>Valentin Vuillon</p>
     </div>
 </div>
