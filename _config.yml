@@ -6,7 +6,7 @@ show_downloads: False
 # Add navigation for the "book-like" structure
 navigation:
   - title: "Introduction"
-    url: /introduction.html
+    url: /
   - title: "The Origins"
     url: /origins.html
   - title: "The Path to Adaptation"
