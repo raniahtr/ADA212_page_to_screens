@@ -23,25 +23,25 @@ Every great story has its authors—those who bring its pages to life with creat
 
 Together, they’ve written a new chapter in understanding the timeless art of adaptation, revealing how books leap from shelves to the bright lights of cinema.
 
-<div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px;">
+<div style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap;">
     <div style="text-align: center;">
         <img src="/assets/img/rania_hatrouhou.jpg" alt="Rania Hatrouhou" style="width: 100px; height: 100px; border-radius: 50%;">
-        <p><strong>Rania Hatrouhou</strong></p>
+        <p>Rania Hatrouhou</p>
     </div>
     <div style="text-align: center;">
         <img src="/assets/img/leila_benjelloun.jpg" alt="Leila Benjelloun" style="width: 100px; height: 100px; border-radius: 50%;">
-        <p><strong>Leila Benjelloun</strong></p>
+        <p>Leila Benjelloun</p>
     </div>
     <div style="text-align: center;">
         <img src="/assets/img/ghalia_bennani.jpg" alt="Ghalia Bennani" style="width: 100px; height: 100px; border-radius: 50%;">
-        <p><strong>Ghalia Bennani</strong></p>
+        <p>Ghalia Bennani</p>
     </div>
     <div style="text-align: center;">
         <img src="/assets/img/leila_benjelloun.jpg" alt="Omar Boudarka" style="width: 100px; height: 100px; border-radius: 50%;">
-        <p><strong>Omar Boudarka</strong></p>
+        <p>Omar Boudarka</p>
     </div>
     <div style="text-align: center;">
         <img src="/assets/img/ghalia_bennani.jpg" alt="Valentin Vuillon" style="width: 100px; height: 100px; border-radius: 50%;">
-        <p><strong>Valentin Vuillon</strong></p>
+        <p>Valentin Vuillon</p>
     </div>
 </div>
