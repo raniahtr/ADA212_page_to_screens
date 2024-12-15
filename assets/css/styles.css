@@ -109,11 +109,22 @@ html, body {
   pointer-events: none;
 }
 
+/* Remove description elements */
+.page-description,
+.current-chapter,
+.chapter-description {
+  display: none;
+}
+
 /* Main Content */
 .main-content {
   background: transparent;
   padding: 0;
   border-radius: 0;
+}
+
+.page-content {
+  margin-top: 0;
 }
 
 /* Typography */
@@ -126,6 +137,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .chapter-heading {
   font-size: 2.5rem;
+  margin-top: 0;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 3px solid var(--primary-color);
