@@ -3,16 +3,17 @@
   --secondary-color: #3498db;
   --accent-color: #8e44ad;
   --text-color: #2c3e50;
-  --bg-color: #f5f6fa;
   --paper-color: #fff9f0;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --nav-bg: #2c3e50;
 }
 
-body {
-  background-color: var(--bg-color);
+/* Base styles to ensure consistency */
+html, body {
+  background-color: var(--paper-color);
   margin: 0;
   padding: 0;
+  min-height: 100vh;
   font-family: "Libre Baskerville", Georgia, serif;
   color: var(--text-color);
   line-height: 1.8;
@@ -26,6 +27,9 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 5px var(--shadow-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .nav-brand h1 {
@@ -46,6 +50,7 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.3s ease;
+  font-family: "Playfair Display", serif;
 }
 
 .nav-item:hover,
@@ -64,23 +69,21 @@ body {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 2rem;
-  background: var(--paper-color);
+  background: white;
   border-radius: 12px;
-  box-shadow: 
-      0 0 0 1px rgba(0,0,0,0.05),
-      0 2px 8px var(--shadow-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
   padding: 2rem;
-  position: relative;
+  min-height: calc(100vh - 200px);
 }
 
 /* Sidebar */
 .sidebar {
   position: sticky;
-  top: 2rem;
+  top: 5rem;
 }
 
 .sidebar-content {
-  background: white;
+  background: var(--paper-color);
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px var(--shadow-color);
@@ -93,43 +96,65 @@ body {
 .description {
   font-style: italic;
   margin-bottom: 1rem;
+  font-family: "Libre Baskerville", Georgia, serif;
 }
 
 .current-chapter {
   font-family: "Playfair Display", serif;
   color: var(--primary-color);
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 /* Main Content */
 .main-content {
-  background: white;
+  background: var(--paper-color);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px var(--shadow-color);
 }
 
-.page-content {
-  position: relative;
+/* Consistent Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
+  color: var(--primary-color);
+  margin: 1.5rem 0 1rem;
+  line-height: 1.2;
 }
 
-/* Typography */
 .chapter-heading {
-  font-family: "Playfair Display", serif;
   font-size: 2.5rem;
-  color: var(--primary-color);
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 3px solid var(--primary-color);
 }
 
 /* First Letter Effect */
-.page-content p:first-of-type::first-letter {
+.main-content p:first-of-type::first-letter {
   float: left;
   font-size: 3.5rem;
   padding: 0.1em 0.1em 0 0;
   font-family: "Playfair Display", serif;
   color: var(--primary-color);
+  line-height: 1;
+}
+
+/* Data Visualization Containers */
+.chart-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  margin: 2rem 0;
+}
+
+.chart-title {
+  font-family: "Playfair Display", serif;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent-color);
 }
 
 /* Responsive Design */
@@ -139,7 +164,6 @@ body {
   }
   
   .sidebar {
-      order: 2;
       position: static;
   }
 }
@@ -147,6 +171,7 @@ body {
 @media (max-width: 768px) {
   .book-container {
       padding: 1rem;
+      margin: 1rem auto;
   }
   
   .wrapper {
