@@ -1,51 +1,17 @@
-/* Page edge indicators */
-.page-edge-left,
-.page-edge-right {
-    position: fixed;
-    top: 0;
-    height: 100%;
-    width: 60px;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 100;
+.page-content {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 2000px;
 }
 
-.page-edge-left {
-    left: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
-}
-
-.page-edge-right {
-    right: 0;
-    background: linear-gradient(to left, rgba(0,0,0,0.1), transparent);
-}
-
-.wrapper:hover .page-edge-left,
-.wrapper:hover .page-edge-right {
-    opacity: 0.5;
-}
-
-/* Page turning animations */
-.page-turn-left {
-    animation: turnPageLeft 0.8s ease-in forwards;
-    transform-origin: right center;
-}
-
-.page-turn-right {
+.page-exit {
     animation: turnPageRight 0.8s ease-in forwards;
     transform-origin: left center;
 }
 
-@keyframes turnPageLeft {
-    0% {
-        transform: rotateY(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: rotateY(180deg);
-        opacity: 0;
-    }
+.page-exit-reverse {
+    animation: turnPageLeft 0.8s ease-in forwards;
+    transform-origin: right center;
 }
 
 @keyframes turnPageRight {
@@ -55,6 +21,17 @@
     }
     100% {
         transform: rotateY(-180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes turnPageLeft {
+    0% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotateY(180deg);
         opacity: 0;
     }
 }
