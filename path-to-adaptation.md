@@ -47,6 +47,10 @@ The most influential factors in determining adaptation timing are:
 ![Comparison of Model Coefficients](/assets/img/lasso_ridge.png)
 
 Interestingly, while genre remains important, these fundamental characteristics of books appear to have an even stronger influence on their adaptation timeline.
+- Books classified as fiction, historical, children’s, and drama genres tend to have the longest adaptation time gaps. This is likely due to the demanding production requirements, such as the need to create entirely new worlds, characters, and elaborate settings.
+- Satire books also show a tendency for delayed adaptations. This delay could be attributed to censorship challenges, as satire often addresses sensitive societal topics that may not always align with mainstream readiness or acceptance.
+- On the other hand, thriller and horror books exhibit the shortest adaptation gaps. This is likely because these genres are highly popular and in greater demand, making production companies more inclined to adapt them quickly. Additionally, their value lies more in execution—such as the ambiance, music, and plot—rather than requiring high budgets or complex production.
+- As for anime books, their impact on adaptation time gaps is insignificant due to their limited representation in the dataset.
 
 ## The Speed Spectrum
 
