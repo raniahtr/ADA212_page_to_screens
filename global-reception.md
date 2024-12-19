@@ -14,7 +14,9 @@ A story may begin in a writer’s study, but when it reaches the big screen, it 
 At first glance, the maps of raw adaptation revenue and ratings make one thing abundantly clear: the **United States** and the **United Kingdom** are the undisputed titans of the adaptation world.
 
 ### **Revenue Powerhouses**
-![Global Revenue Map](/assets/img/revenue_map.png)
+
+<iframe src="/assets/img/map1.html" width="100%" height="600" frameborder="0"></iframe>
+
 
 The United States and United Kingdom’s dominance is no surprise, given their established film industries, global cultural influence, and access to substantial financial resources. Hollywood, for instance, is the epicenter of blockbuster filmmaking, with budgets that dwarf those of other countries. The **United Kingdom**, while smaller in scale, boasts a rich literary heritage that has provided the basis for globally successful franchises like **Harry Potter** and **The Lord of the Rings**.
 
