@@ -29,7 +29,7 @@ Not all books face the same journey to Hollywood. Genre plays a crucial role in 
 
 One might expect literary prizes to fast-track a book's journey to the screen. Our survival analysis shows an interesting pattern:
 
-![Survival Analysis by Prize Status](/assets/img/survival-curve.png)
+![Survival Analysis by Prize Status](/assets/imgs/prize-status-curve.png)
 
 The data reveals that prize-winning books don't necessarily get preferential treatment in the adaptation timeline. In fact, the curves for prize-winners and non-winners follow remarkably similar paths, suggesting that other factors may be more influential in determining adaptation speed.
 
