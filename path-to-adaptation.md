@@ -44,7 +44,7 @@ The most influential factors in determining adaptation timing are:
 2. Book length (pages)
 3. Book rating
 
-![Comparison of Model Coefficients](/assets/img/lasso_ridge.png )
+![Comparison of Model Coefficients](/assets/img/lasso_ridge.png)
 
 Interestingly, while genre remains important, these fundamental characteristics of books appear to have an even stronger influence on their adaptation timeline.
 
