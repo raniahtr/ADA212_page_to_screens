@@ -15,7 +15,7 @@ At first glance, the maps of raw adaptation revenue and ratings make one thing a
 
 ### **Revenue Powerhouses**
 
-<iframe src="../assets/img/map1.html" width="100%" height="600" frameborder="0"></iframe>
+<iframe src="https://raniahtr.github.io/ADA212_page_to_screens/assets/img/map1.html" width="100%" height="600" frameborder="0"></iframe>
 
 
 The United States and United Kingdom’s dominance is no surprise, given their established film industries, global cultural influence, and access to substantial financial resources. Hollywood, for instance, is the epicenter of blockbuster filmmaking, with budgets that dwarf those of other countries. The **United Kingdom**, while smaller in scale, boasts a rich literary heritage that has provided the basis for globally successful franchises like **Harry Potter** and **The Lord of the Rings**.
