@@ -64,4 +64,8 @@ This polarization suggests a "two-speed" industry: books either catch the fast t
 
 With the entertainment industry's ever-growing appetite for content, we're seeing larger numbers of adaptations in recent decades. However, this hasn't necessarily meant faster adaptations – if anything, modern filmmakers are more willing to reach far back into literary history for their source material.
 
+![Time gap distribution accross decades](/assets/img/decade_time.png)
+
+
 This comprehensive analysis reveals that the journey from page to screen is a complex interplay of genre, timing, and industry dynamics. While some books make the leap almost instantly, others wait centuries for their moment in the spotlight – proving that in the world of adaptations, it's never too late for a good story to find its way to the screen.
+
