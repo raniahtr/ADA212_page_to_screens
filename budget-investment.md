@@ -89,6 +89,7 @@ To uncover patterns, we grouped adaptations into five clusters based on their bu
         </div>
     </div>
     
+
     <div class="cluster-content">
         <div class="cluster-panel active" id="cluster1">
             <img src="https://raniahtr.github.io/ADA212_page_to_screens/assets/img/clusters/hunger-games.jpg" alt="The Hunger Games">

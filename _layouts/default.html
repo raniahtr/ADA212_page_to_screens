@@ -69,14 +69,13 @@
             const navItems = Array.from(document.querySelectorAll('.nav-item'));
             const currentUrl = window.location.pathname;
             const pageContent = document.querySelector('.page-content');
+            
             // Find current page index
             const currentIndex = navItems.findIndex(item => {
-            const itemUrl = item.getAttribute('href');
-            const currentPath = currentUrl.replace(/^\//, '');  // Remove leading slash if present
-            const itemPath = itemUrl.replace(/^\//, '');        // Remove leading slash if present
-            return currentPath === itemPath || 
-                    (currentPath === '' && itemPath === '/') ||
-                    (currentPath === 'index.html' && itemPath === '/');
+                const itemUrl = item.getAttribute('href');
+                return currentUrl.endsWith(itemUrl) || 
+                       (currentUrl === '/' && itemUrl === '/') ||
+                       (currentUrl === '/index.html' && itemUrl === '/');
             });
 
             const prevChapter = document.querySelector('.prev-chapter');
@@ -94,7 +93,7 @@
             } else {
                 prevChapter.classList.add('disabled');
                 prevChapter.removeAttribute('href');
-                prevChapter.textContent = '← Start of Book';
+                prevChapter.textContent = ' Start of Book';
             }
 
             // Update next chapter link
@@ -109,7 +108,7 @@
             } else {
                 nextChapter.classList.add('disabled');
                 nextChapter.removeAttribute('href');
-                nextChapter.textContent = 'End of Book →';
+                nextChapter.textContent = 'End of Book ';
             }
 
             // Handle page transitions
