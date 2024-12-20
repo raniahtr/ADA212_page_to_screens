@@ -48,15 +48,12 @@ While original movies see more variability—spanning from groundbreaking to for
 
 The relationship between adaptations and success isn’t as straightforward as it seems. Hidden forces—**confounding variables**—influence the outcome:  
 
-1. **Genre Bias**:  
-   Adaptations are often skewed towards genres like *fantasy* (*The Hobbit*) and *detective stories* (*Sherlock Holmes*), which tend to perform well.  
-   - Fantasy books correlate with box office success *(0.17)*, while detective stories thrive when part of a series *(0.24)*.
+**Genre Bias**:  Adaptations are often skewed towards genres like *fantasy* (*The Hobbit*) and *detective stories* (*Sherlock Holmes*), which tend to perform well.  
+Fantasy books correlate with box office success *(0.17)*, while detective stories thrive when part of a series *(0.24)*.
 
-2. **Budget Advantage**:  
-   Movies based on books often receive larger budgets (*The Twilight Saga*), naturally boosting production quality and marketing reach.  
+**Budget Advantage**: Movies based on books often receive larger budgets (*The Twilight Saga*), naturally boosting production quality and marketing reach.  
 
-3. **Time Gap**:  
-   The timing of adaptations also matters. Does releasing a movie decades after a book fuels nostalgia, or does it miss its audience? The data shows minimal impact of the **time gap** *(correlation ~ -0.02)*.  
+**Time Gap**:  The timing of adaptations also matters. Does releasing a movie decades after a book fuels nostalgia, or does it miss its audience? The data shows minimal impact of the **time gap** *(correlation ~ -0.02)*.  
 
 ![The Correlation Matrix: Book Features vs. Success Metrics](/assets/img/correlation_matrix.png)
 
