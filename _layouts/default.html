@@ -12,7 +12,6 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/page-turner.css?v=' | append: site.github.build_revision | relative_url }}">
     
     <meta name="viewport" content="width=device-width">
 
@@ -52,12 +51,102 @@
                 <div class="page-content">
                     <h1 class="chapter-heading">{{ page.title }}</h1>
                     {{ content }}
+                    
+                    <!-- Chapter Navigation -->
+                    <div class="chapter-navigation">
+                        <a href="#" class="prev-chapter">← Previous Chapter</a>
+                        <a href="#" class="next-chapter">Next Chapter →</a>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ '/assets/js/page-turner.js' | relative_url }}"></script>
+    <!-- Chapter Navigation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation items
+            const navItems = Array.from(document.querySelectorAll('.nav-item'));
+            const currentUrl = window.location.pathname;
+            const pageContent = document.querySelector('.page-content');
+            
+            // Find current page index
+            const currentIndex = navItems.findIndex(item => {
+                const itemUrl = item.getAttribute('href');
+                return currentUrl.endsWith(itemUrl) || 
+                       (currentUrl === '/' && itemUrl === '/') ||
+                       (currentUrl === '/index.html' && itemUrl === '/');
+            });
+
+            const prevChapter = document.querySelector('.prev-chapter');
+            const nextChapter = document.querySelector('.next-chapter');
+
+            // Update previous chapter link
+            if (currentIndex > 0) {
+                const prevItem = navItems[currentIndex - 1];
+                prevChapter.href = prevItem.href;
+                prevChapter.textContent = `← ${prevItem.textContent}`;
+            } else {
+                prevChapter.classList.add('disabled');
+                prevChapter.removeAttribute('href');
+            }
+
+            // Update next chapter link
+            if (currentIndex < navItems.length - 1) {
+                const nextItem = navItems[currentIndex + 1];
+                nextChapter.href = nextItem.href;
+                nextChapter.textContent = `${nextItem.textContent} →`;
+            } else {
+                nextChapter.classList.add('disabled');
+                nextChapter.removeAttribute('href');
+            }
+
+            // Handle page transitions
+            function handlePageTransition(direction, url) {
+            pageContent.classList.add(direction === 'next' ? 'page-exit' : 'page-exit-next');
+    
+            setTimeout(() => {
+                window.location.href = url;
+             }, 200); // Reduced timing for smoother transition
+}   
+
+            // Add click handlers with transitions
+            if (!prevChapter.classList.contains('disabled')) {
+                prevChapter.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    handlePageTransition('prev', this.href);
+                });
+            }
+
+            if (!nextChapter.classList.contains('disabled')) {
+                nextChapter.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    handlePageTransition('next', this.href);
+                });
+            }
+
+            // Add keyboard navigation with transitions
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft' && !prevChapter.classList.contains('disabled')) {
+                    e.preventDefault();
+                    handlePageTransition('prev', prevChapter.href);
+                } else if (e.key === 'ArrowRight' && !nextChapter.classList.contains('disabled')) {
+                    e.preventDefault();
+                    handlePageTransition('next', nextChapter.href);
+                }
+            });
+
+            // Handle page entry animation
+            if (performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD) {
+                pageContent.classList.add('page-enter-prev');
+            } else {
+                pageContent.classList.add('page-enter');
+            }
+            
+            requestAnimationFrame(() => {
+                pageContent.classList.remove('page-enter', 'page-enter-prev');
+            });
+        });
+    </script>
 </body>
 </html>
