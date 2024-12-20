@@ -73,37 +73,185 @@ This visualization challenges the notion that more spending guarantees success. 
 
 ## **The Five Faces of Film Adaptation: A Cluster Analysis**
 
-
-To uncover patterns, we grouped adaptations into five clusters based on their budget and revenue characteristics. This clustering helps us understand how different strategies fare in the adaptation market.
+To uncover patterns, we grouped adaptations into five clusters based on their budget and revenue characteristics.
 
 <iframe src="https://raniahtr.github.io/ADA212_page_to_screens/assets/img/clusters.html" width="100%" height="700" frameborder="0"></iframe>
 <iframe src="https://raniahtr.github.io/ADA212_page_to_screens/assets/img/cluster_characteristics.html" width="100%" height="600" frameborder="0"></iframe>
 
+<div class="cluster-container">
+    <div class="cluster-sidebar">
+        <div class="cluster-nav">
+            <button class="cluster-btn active" data-cluster="1">The Steady Performers</button>
+            <button class="cluster-btn" data-cluster="2">The Passion Projects</button>
+            <button class="cluster-btn" data-cluster="3">The Efficient Innovators</button>
+            <button class="cluster-btn" data-cluster="4">The Blockbuster Elite</button>
+            <button class="cluster-btn" data-cluster="5">The Cautionary Tales</button>
+        </div>
+    </div>
+    
+    <div class="cluster-content">
+        <div class="cluster-panel active" id="cluster1">
+            <img src="/assets/img/clusters/hunger-games.jpg" alt="The Hunger Games">
+            <h3>The Steady Performers (Cluster 1)</h3>
+            <p class="cluster-stats">Average Budget: $38M | Average Revenue: $76M | ROI: 97.8% | Median IMDb: 6.5</p>
+            <p>These films represent Hollywood's bread and butter—reliable adaptations that consistently deliver moderate returns. Think "The Hunger Games" and similar ventures that balance artistic integrity with commercial viability. Their IMDb ratings cluster around 6.5, suggesting they satisfy audiences without necessarily breaking new ground. These adaptations prove that playing it safe can be a sustainable strategy, though rarely a revolutionary one.</p>
+        </div>
 
-### **The Steady Performers (Cluster 1)**
-*Average Budget: $38M | Average Revenue: $76M | ROI: 97.8% | Median IMDb: 6.5*
+        <div class="cluster-panel" id="cluster2">
+            <img src="/assets/img/clusters/passion-project.jpg" alt="Passion Project Example">
+            <h3>The Passion Projects (Cluster 2)</h3>
+            <p class="cluster-stats">Average Budget: $786K | Average Revenue: $166K | ROI: -78.9% | Median IMDb: 7.0</p>
+            <p>Surprisingly, despite their financial struggles, these low-budget adaptations maintain relatively high IMDb ratings. They're often passion projects—ambitious attempts to bring beloved niche literature to screen. While they rarely recoup their modest investments, their above-average audience ratings suggest they're connecting with viewers on an artistic level. These films remind us that commercial failure doesn't always equal creative failure.</p>
+        </div>
 
-These films represent Hollywood's bread and butter—reliable adaptations that consistently deliver moderate returns. Think "The Hunger Games" and similar ventures that balance artistic integrity with commercial viability. Their IMDb ratings cluster around 6.5, suggesting they satisfy audiences without necessarily breaking new ground. These adaptations prove that playing it safe can be a sustainable strategy, though rarely a revolutionary one.
+        <div class="cluster-panel" id="cluster3">
+            <img src="/assets/img/clusters/blair-witch.jpg" alt="The Blair Witch Project">
+            <h3>The Efficient Innovators (Cluster 3)</h3>
+            <p class="cluster-stats">Average Budget: $8.27M | Average Revenue: $22.15M | ROI: 167.7% | Median IMDb: 6.7</p>
+            <p>These adaptations are the alchemists of the industry, turning modest budgets into gold. Films like "The Blair Witch Project" exemplify this cluster's genius—finding creative ways to overcome financial constraints. Their solid IMDb ratings prove that innovation often resonates more with audiences than pure production value. They represent the sweet spot where creative problem-solving meets market success.</p>
+        </div>
 
-### **The Passion Projects (Cluster 2)**
-*Average Budget: $786K | Average Revenue: $166K | ROI: -78.9% | Median IMDb: 7.0*
+        <div class="cluster-panel" id="cluster4">
+            <img src="/assets/img/clusters/lotr.jpg" alt="The Lord of the Rings">
+            <h3>The Blockbuster Elite (Cluster 4)</h3>
+            <p class="cluster-stats">Average Budget: $186M | Average Revenue: $377M | ROI: 102.9% | Median IMDb: 6.8</p>
+            <p>Home to adaptations like "The Lord of the Rings," this cluster proves that sometimes you need to spend money to make money. Their slightly higher IMDb ratings suggest that these big budgets often translate into enhanced viewer experience. However, the modest ROI improvement over Cluster 1 raises an intriguing question: are these massive budgets truly necessary for success, or are they more about risk mitigation through production value?</p>
+        </div>
 
-Surprisingly, despite their financial struggles, these low-budget adaptations maintain relatively high IMDb ratings. They're often passion projects—ambitious attempts to bring beloved niche literature to screen. While they rarely recoup their modest investments, their above-average audience ratings suggest they're connecting with viewers on an artistic level. These films remind us that commercial failure doesn't always equal creative failure.
+        <div class="cluster-panel" id="cluster5">
+            <img src="/assets/img/clusters/cautionary.jpg" alt="Cautionary Tale Example">
+            <h3>The Cautionary Tales (Cluster 5)</h3>
+            <p class="cluster-stats">Average Budget: $9.46M | Average Revenue: $17K | ROI: -99.8% | Median IMDb: 6.5</p>
+            <p>Perhaps the most intriguing cluster, these films maintain average IMDb ratings despite catastrophic financial performance. This suggests a fascinating disconnect between artistic merit and market success. These adaptations often suffer not from poor quality but from misaligned marketing, poor release timing, or competition. They serve as powerful reminders that good storytelling alone doesn't guarantee commercial success.</p>
+        </div>
+    </div>
+</div>
 
-### **The Efficient Innovators (Cluster 3)**
-*Average Budget: $8.27M | Average Revenue: $22.15M | ROI: 167.7% | Median IMDb: 6.7*
+<style>
+.cluster-container {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    min-height: 400px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-These adaptations are the alchemists of the industry, turning modest budgets into gold. Films like "The Blair Witch Project" exemplify this cluster's genius—finding creative ways to overcome financial constraints. Their solid IMDb ratings prove that innovation often resonates more with audiences than pure production value. They represent the sweet spot where creative problem-solving meets market success.
+.cluster-sidebar {
+    flex: 0 0 250px;
+    border-right: 1px solid #eee;
+    background: #f8f9fa;
+    border-radius: 8px 0 0 8px;
+}
 
-### **The Blockbuster Elite (Cluster 4)**
-*Average Budget: $186M | Average Revenue: $377M | ROI: 102.9% | Median IMDb: 6.8*
+.cluster-nav {
+    position: sticky;
+    top: 2rem;
+    padding: 1rem 0;
+}
 
-Home to adaptations like "The Lord of the Rings," this cluster proves that sometimes you need to spend money to make money. Their slightly higher IMDb ratings suggest that these big budgets often translate into enhanced viewer experience. However, the modest ROI improvement over Cluster 1 raises an intriguing question: are these massive budgets truly necessary for success, or are they more about risk mitigation through production value?
+.cluster-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #555;
+}
 
-### **The Cautionary Tales (Cluster 5)**
-*Average Budget: $9.46M | Average Revenue: $17K | ROI: -99.8% | Median IMDb: 6.5*
+.cluster-btn:hover {
+    background: #eef1f5;
+}
 
-Perhaps the most intriguing cluster, these films maintain average IMDb ratings despite catastrophic financial performance. This suggests a fascinating disconnect between artistic merit and market success. These adaptations often suffer not from poor quality but from misaligned marketing, poor release timing, or competition. They serve as powerful reminders that good storytelling alone doesn't guarantee commercial success.
+.cluster-btn.active {
+    background: #447adb;
+    color: white;
+    font-weight: bold;
+}
+
+.cluster-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.cluster-panel {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.cluster-panel.active {
+    display: block;
+}
+
+.cluster-panel img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cluster-stats {
+    font-style: italic;
+    color: #666;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .cluster-container {
+        flex-direction: column;
+    }
+    
+    .cluster-sidebar {
+        flex: none;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .cluster-nav {
+        display: flex;
+        overflow-x: auto;
+        padding: 0.5rem;
+    }
+    
+    .cluster-btn {
+        flex: 0 0 auto;
+        padding: 0.5rem 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.cluster-btn');
+    const panels = document.querySelectorAll('.cluster-panel');
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cluster = btn.dataset.cluster;
+            
+            buttons.forEach(b => b.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+            
+            btn.classList.add('active');
+            document.getElementById(`cluster${cluster}`).classList.add('active');
+        });
+    });
+});
+</script>
 
 ## **Beyond the Numbers: What This Clustering Reveals**
 
