@@ -91,35 +91,35 @@ To uncover patterns, we grouped adaptations into five clusters based on their bu
     
     <div class="cluster-content">
         <div class="cluster-panel active" id="cluster1">
-            <img src="/assets/img/clusters/hunger-games.jpg" alt="The Hunger Games">
+            <img src="https://raniahtr.github.io/ADA212_page_to_screens/assets/img/clusters/hunger-games.jpg" alt="The Hunger Games">
             <h3>The Steady Performers (Cluster 1)</h3>
             <p class="cluster-stats">Average Budget: $38M | Average Revenue: $76M | ROI: 97.8% | Median IMDb: 6.5</p>
             <p>These films represent Hollywood's bread and butter—reliable adaptations that consistently deliver moderate returns. Think "The Hunger Games" and similar ventures that balance artistic integrity with commercial viability. Their IMDb ratings cluster around 6.5, suggesting they satisfy audiences without necessarily breaking new ground. These adaptations prove that playing it safe can be a sustainable strategy, though rarely a revolutionary one.</p>
         </div>
 
         <div class="cluster-panel" id="cluster2">
-            <img src="/assets/img/clusters/passion-project.jpg" alt="Passion Project Example">
+            <img src="https://raniahtr.github.io/ADA212_page_to_screens/assets/img/clusters/passion-project.jpg" alt="Passion Project Example">
             <h3>The Passion Projects (Cluster 2)</h3>
             <p class="cluster-stats">Average Budget: $786K | Average Revenue: $166K | ROI: -78.9% | Median IMDb: 7.0</p>
             <p>Surprisingly, despite their financial struggles, these low-budget adaptations maintain relatively high IMDb ratings. They're often passion projects—ambitious attempts to bring beloved niche literature to screen. While they rarely recoup their modest investments, their above-average audience ratings suggest they're connecting with viewers on an artistic level. These films remind us that commercial failure doesn't always equal creative failure.</p>
         </div>
 
         <div class="cluster-panel" id="cluster3">
-            <img src="/assets/img/clusters/blair-witch.jpg" alt="The Blair Witch Project">
+            <img src="https://raniahtr.github.io/ADA212_page_to_screens/assets/img/clusters/blair-witch.jpg" alt="The Blair Witch Project">
             <h3>The Efficient Innovators (Cluster 3)</h3>
             <p class="cluster-stats">Average Budget: $8.27M | Average Revenue: $22.15M | ROI: 167.7% | Median IMDb: 6.7</p>
             <p>These adaptations are the alchemists of the industry, turning modest budgets into gold. Films like "The Blair Witch Project" exemplify this cluster's genius—finding creative ways to overcome financial constraints. Their solid IMDb ratings prove that innovation often resonates more with audiences than pure production value. They represent the sweet spot where creative problem-solving meets market success.</p>
         </div>
 
         <div class="cluster-panel" id="cluster4">
-            <img src="/assets/img/clusters/lotr.jpg" alt="The Lord of the Rings">
+            <img src="https://raniahtr.github.io/ADA212_page_to_screens/assets/img/clusters/lotr.jpg" alt="The Lord of the Rings">
             <h3>The Blockbuster Elite (Cluster 4)</h3>
             <p class="cluster-stats">Average Budget: $186M | Average Revenue: $377M | ROI: 102.9% | Median IMDb: 6.8</p>
             <p>Home to adaptations like "The Lord of the Rings," this cluster proves that sometimes you need to spend money to make money. Their slightly higher IMDb ratings suggest that these big budgets often translate into enhanced viewer experience. However, the modest ROI improvement over Cluster 1 raises an intriguing question: are these massive budgets truly necessary for success, or are they more about risk mitigation through production value?</p>
         </div>
 
         <div class="cluster-panel" id="cluster5">
-            <img src="/assets/img/clusters/cautionary.jpg" alt="Cautionary Tale Example">
+            <img src="https://raniahtr.github.io/ADA212_page_to_screens/assets/img/clusters/cautionary.jpg" alt="Cautionary Tale Example">
             <h3>The Cautionary Tales (Cluster 5)</h3>
             <p class="cluster-stats">Average Budget: $9.46M | Average Revenue: $17K | ROI: -99.8% | Median IMDb: 6.5</p>
             <p>Perhaps the most intriguing cluster, these films maintain average IMDb ratings despite catastrophic financial performance. This suggests a fascinating disconnect between artistic merit and market success. These adaptations often suffer not from poor quality but from misaligned marketing, poor release timing, or competition. They serve as powerful reminders that good storytelling alone doesn't guarantee commercial success.</p>
