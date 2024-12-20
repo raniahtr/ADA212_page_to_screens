@@ -47,6 +47,8 @@ Together, they’ve written a new chapter in understanding the timeless art of a
 </div>
 
 
-
 ---
 Turn the page and explore the journey from words to the big screen.
+
+<i class="fab fa-github"></i> [View Source Code](https://github.com/epfl-ada/ada-2024-project-ada212)
+

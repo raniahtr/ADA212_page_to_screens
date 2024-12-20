@@ -54,8 +54,8 @@
                     
                     <!-- Chapter Navigation -->
                     <div class="chapter-navigation">
-                        <a href="#" class="prev-chapter">← Preface</a>
-                        <a href="#" class="next-chapter">The End →</a>
+                        <a href="#" class="prev-chapter">← Previous Chapter</a>
+                        <a href="#" class="next-chapter">Next Chapter →</a>
                     </div>
                 </div>
             </section>
@@ -69,13 +69,14 @@
             const navItems = Array.from(document.querySelectorAll('.nav-item'));
             const currentUrl = window.location.pathname;
             const pageContent = document.querySelector('.page-content');
-            
             // Find current page index
             const currentIndex = navItems.findIndex(item => {
-                const itemUrl = item.getAttribute('href');
-                return currentUrl.endsWith(itemUrl) || 
-                       (currentUrl === '/' && itemUrl === '/') ||
-                       (currentUrl === '/index.html' && itemUrl === '/');
+            const itemUrl = item.getAttribute('href');
+            const currentPath = currentUrl.replace(/^\//, '');  // Remove leading slash if present
+            const itemPath = itemUrl.replace(/^\//, '');        // Remove leading slash if present
+            return currentPath === itemPath || 
+                    (currentPath === '' && itemPath === '/') ||
+                    (currentPath === 'index.html' && itemPath === '/');
             });
 
             const prevChapter = document.querySelector('.prev-chapter');
@@ -85,30 +86,40 @@
             if (currentIndex > 0) {
                 const prevItem = navItems[currentIndex - 1];
                 prevChapter.href = prevItem.href;
-                prevChapter.textContent = `← ${prevItem.textContent}`;
+                if (currentIndex === 1) {
+                    prevChapter.textContent = `← Introduction`;
+                } else {
+                    prevChapter.textContent = `← ${prevItem.textContent}`;
+                }
             } else {
                 prevChapter.classList.add('disabled');
                 prevChapter.removeAttribute('href');
+                prevChapter.textContent = '← Start of Book';
             }
 
             // Update next chapter link
             if (currentIndex < navItems.length - 1) {
                 const nextItem = navItems[currentIndex + 1];
                 nextChapter.href = nextItem.href;
-                nextChapter.textContent = `${nextItem.textContent} →`;
+                if (currentIndex === navItems.length - 2) {
+                    nextChapter.textContent = `Final Chapter →`;
+                } else {
+                    nextChapter.textContent = `${nextItem.textContent} →`;
+                }
             } else {
                 nextChapter.classList.add('disabled');
                 nextChapter.removeAttribute('href');
+                nextChapter.textContent = 'End of Book →';
             }
 
             // Handle page transitions
             function handlePageTransition(direction, url) {
-            pageContent.classList.add(direction === 'next' ? 'page-exit' : 'page-exit-next');
-    
-            setTimeout(() => {
-                window.location.href = url;
-             }, 400); // Reduced timing for smoother transition
-}   
+                pageContent.classList.add(direction === 'next' ? 'page-exit' : 'page-exit-next');
+                
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 400);
+            }
 
             // Add click handlers with transitions
             if (!prevChapter.classList.contains('disabled')) {
